@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>  
+		<span>총 클릭 수 : <span id="counter">0</span></span>
+        <button id="btn">Click me</button>
+    </body>
+
+    <script>
+		let counterNum = 0;
+        const button = document.getElementById("btn");
+		const counter = document.getElementById("counter");
+
+		function handleClick () {
+			counterNum = counterNum + 1;
+			counter.innerText = `${counterNum}`;
+		}
+		button.addEventListener("click" , handleClick);
+    </script>
+</html>

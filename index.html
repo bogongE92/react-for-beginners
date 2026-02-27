@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <body>
+		<div id="root"></div>
+	</body>
+
+	<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+	<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	
+    
+	<script type="text/babel">
+		const root = document.getElementById("root");
+		//  state 는 기본적으로 데이터가 저장되는 곳이다.
+		// 리액트는 다른(변경된) 부분만 찾아서 렌더링 해준다.
+
+		let counter = 0; // 0으로 초기화
+		function countUp (){
+			counter = counter + 1;
+			// 리렌더링을 해줘야 화면에서 숫자가 바뀐다. 
+			render();
+		}
+
+		function render() {
+			ReactDOM.render( <Container />, root);
+		}
+		const Container = () => (
+			<div id="container">
+				<h3>총 클릭 수 : <span id="counter">{counter}</span></h3>
+				<button id="btn" onClick={countUp}>Click me</button>
+			</div>
+		);
+		
+		
+		render();
+	</script>
+</html>

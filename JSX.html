@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <body>
+		<div id="root"></div>
+	</body>
+
+	<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+	<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	
+    
+	<script type="text/babel">
+		const root = document.getElementById("root");
+		//  state 는 기본적으로 데이터가 저장되는 곳이다.
+
+		/* const h3 = React.createElement(
+			"h3" , 
+			{
+				id: "title",
+				onMouseEnter: () => console.log("mouse enter"),
+			}, 
+			"카운팅 갯수 : 0"
+		); */
+		/* JSX 방식으로 작성 */
+		const TitleH3 = () => (
+			<h3 id="title" onMouseEnter={() => console.log("mouse enter")} >
+				총 클릭 수 : 0
+			</h3>
+		) ;
+
+		/* const btn = React.createElement(
+			"button" ,
+			{
+				onClick: () => console.log("clicked"),
+				style: {
+					backgroundColor:"tomato",
+				}
+			}, 
+			"click button"
+		); */
+		/* JSX 방식으로 작성 */
+		const Btn = () => (
+			<button 
+				style = {{
+					backgroundColor:"tomato",
+				}}
+				onClick={() => console.log("clicked")} 
+			>
+				click button
+			</button>
+		);
+
+		/* const container = React.createElement(
+			"div", 
+			null, [titleH3, btn]
+		); */
+		/* JSX 방식으로 작성 */
+		/* 
+			여기서 기역해야 될 건 컴포넌트의 첫글자는 반드시 대문자여야한다.
+			만약 소문자면 react랑 JSX는 이게 html 태그라고 생각하기 때문이다
+		*/
+		const Container = () => (
+			<div id="container">
+				<TitleH3 />	
+				<Btn />	
+			</div>
+		);
+		
+		
+		ReactDOM.render( <Container />, root);
+	</script>
+</html>
