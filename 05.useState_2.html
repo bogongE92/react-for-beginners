@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <body>
+		<div id="root"></div>
+	</body>
+
+	<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+	<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	
+    
+	<script type="text/babel">
+		const root = document.getElementById("root");
+		//  state 는 기본적으로 데이터가 저장되는 곳이다.
+		// 리액트는 다른(변경된) 부분만 찾아서 렌더링 해준다.
+
+		// let counter = 0; // 0으로 초기화  = 이부분이 React.useState();랑 같은 역할을 한다. 
+		/* function countUp (){ // 두번째는 React.useState();의 값을 바꾸는 함수부분을 한다.
+			counter = counter + 1;
+			// 리렌더링을 해줘야 화면에서 숫자가 바뀐다. 
+			render();
+		} */
+
+		const App = () => {
+			const [counter, setCounter] = React.useState(0); //useState(0); 은 초기값 설정 // [counter, setCounter]
+			// console.log([counter, setCounter]);
+			// setCounter 필요한 이유를 생각해보자 .
+			// 값을 바꿀때는 setCounter 값을 활용해서 바꿔야 한다. 
+			const onClick = () => {
+				setCounter( counter + 1);
+			};
+			console.log("rendered");
+			console.log(counter);
+
+			return (
+				<div id="container">
+					<h3>총 클릭 수 : {counter}</h3>
+					<button id="btn"  onClick={ onClick }>Click me</button>
+				</div>
+			)
+		};
+		
+		
+		ReactDOM.render( <App />, root);
+	</script>
+</html>
